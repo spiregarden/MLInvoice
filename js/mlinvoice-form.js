@@ -353,11 +353,38 @@ MLInvoice.addModule('Form', function mlinvoiceForm() {
     if (!api_method) {
       return;
     }
+    var setMethodHints = function (method, form) {
+      var username = form.querySelector('[name="username"]');
+      var password = form.querySelector('[name="password"]');
+      var reference = form.querySelector('[name="reference"]');
+      if (!username || !password || !reference) {
+        return;
+      }
+
+      if (method === 'Maventa') {
+        username.placeholder = 'Company UUID';
+        username.title = 'Maventa client_id (Company UUID)';
+        password.placeholder = 'User API key';
+        password.title = 'Maventa client_secret (User API key)';
+        reference.placeholder = 'Vendor API key';
+        reference.title = 'Maventa vendor_api_key';
+      } else {
+        username.placeholder = '';
+        username.title = '';
+        password.placeholder = '';
+        password.title = '';
+        reference.placeholder = '';
+        reference.title = '';
+      }
+    };
     var toggle_fields = function () {
       let val = api_method.value;
-      api_method.closest('form').querySelectorAll('input, select').forEach((element) => {
+      let form = api_method.closest('form');
+      setMethodHints(val, form);
+      form.querySelectorAll('input, select').forEach((element) => {
         if ('enabled' in element.dataset) {
-          element.disabled = val !== element.dataset.enabled;
+          let enabledFor = element.dataset.enabled.split(',').map((item) => item.trim());
+          element.disabled = enabledFor.indexOf(val) === -1;
           if (element.disabled) {
             if (element.tagName === 'SELECT') {
               element.value = '0';
@@ -795,7 +822,11 @@ MLInvoice.addModule('Form', function mlinvoiceForm() {
           var $li = $('<li class="dropdown-item">')
             .text(item.name);
           $li.on('click', function liClick() {
+            if (service.method === 'Maventa' && !confirm('Send this invoice to Maventa now?')) {
+              return false;
+            }
             _sendPrintout('?' + item.href);
+            return false;
           });
           $menuitems.append($li);
         });

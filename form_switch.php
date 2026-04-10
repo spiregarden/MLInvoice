@@ -1852,6 +1852,7 @@ case 'send_api_config':
             'style' => 'medium translated',
             'listquery' => [
                 'postita.fi' => 'Postita.fi',
+                'Maventa' => 'Maventa',
                 'ServerDirectory' => 'ServerDirectory',
             ],
             'position' => 0,
@@ -1865,7 +1866,7 @@ case 'send_api_config':
             'style' => 'medium',
             'position' => 0,
             'allow_null' => true,
-            'elem_attributes' => 'data-enabled="postita.fi"'
+            'elem_attributes' => 'data-enabled="postita.fi,Maventa"'
         ],
         [
             'name' => 'password',
@@ -1874,7 +1875,7 @@ case 'send_api_config':
             'style' => 'medium',
             'position' => 0,
             'allow_null' => true,
-            'elem_attributes' => 'data-enabled="postita.fi"'
+            'elem_attributes' => 'data-enabled="postita.fi,Maventa"'
         ],
         [
             'name' => 'reference',
@@ -1883,7 +1884,7 @@ case 'send_api_config':
             'style' => 'medium',
             'position' => 0,
             'allow_null' => true,
-            'elem_attributes' => 'data-enabled="postita.fi"'
+            'elem_attributes' => 'data-enabled="postita.fi,Maventa"'
         ],
         [
             'name' => 'directory',

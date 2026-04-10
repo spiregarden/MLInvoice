@@ -512,5 +512,78 @@ $arrSettings = [
         'position' => 1,
         'default' => 0,
         'allow_null' => true
+    ],
+
+    'maventa_sep' => [
+        'label' => 'Maventa API',
+        'type' => 'HEADING'
+    ],
+    'maventa_environment' => [
+        'label' => 'Maventa environment',
+        'type' => 'SELECT',
+        'style' => 'xlong noemptyvalue',
+        'position' => 1,
+        'default' => 'stage',
+        'allow_null' => false,
+        'options' => [
+            'stage' => 'Stage (ax-stage.maventa.com)',
+            'production' => 'Production (ax.maventa.com)'
+        ]
+    ],
+    'maventa_staging_sep' => [
+        'label' => 'Maventa staging credentials',
+        'type' => 'HEADING'
+    ],
+    'maventa_company_id_staging' => [
+        'label' => 'Maventa staging Company UUID',
+        'type' => 'TEXT',
+        'style' => 'xlong',
+        'position' => 1,
+        'default' => '',
+        'allow_null' => true
+    ],
+    'maventa_company_api_key_staging_encrypted' => [
+        'label' => 'Maventa staging User API key',
+        'type' => 'PASSWD_STORED',
+        'style' => 'xlong',
+        'position' => 1,
+        'default' => '',
+        'allow_null' => true
+    ],
+    'maventa_vendor_api_key_staging_encrypted' => [
+        'label' => 'Maventa staging Vendor API key',
+        'type' => 'PASSWD_STORED',
+        'style' => 'xlong',
+        'position' => 1,
+        'default' => '',
+        'allow_null' => true
+    ],
+    'maventa_production_sep' => [
+        'label' => 'Maventa production credentials',
+        'type' => 'HEADING'
+    ],
+    'maventa_company_id_production' => [
+        'label' => 'Maventa production Company UUID',
+        'type' => 'TEXT',
+        'style' => 'xlong',
+        'position' => 1,
+        'default' => '',
+        'allow_null' => true
+    ],
+    'maventa_company_api_key_production_encrypted' => [
+        'label' => 'Maventa production User API key',
+        'type' => 'PASSWD_STORED',
+        'style' => 'xlong',
+        'position' => 1,
+        'default' => '',
+        'allow_null' => true
+    ],
+    'maventa_vendor_api_key_production_encrypted' => [
+        'label' => 'Maventa production Vendor API key',
+        'type' => 'PASSWD_STORED',
+        'style' => 'xlong',
+        'position' => 1,
+        'default' => '',
+        'allow_null' => true
     ]
 ];

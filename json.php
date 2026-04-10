@@ -1048,6 +1048,7 @@ function getSendApiServices($invoiceId, $baseId)
         ) {
             continue;
         }
+        $candidate['printer'] = $printer;
         $templates[] = $candidate;
     }
 
@@ -1060,6 +1061,11 @@ function getSendApiServices($invoiceId, $baseId)
         ];
         $items = [];
         foreach ($templates as $template) {
+            if ('Maventa' === $config['method']
+                && !$template['printer'] instanceof InvoicePrinterFinvoice
+            ) {
+                continue;
+            }
             $item = $urlBase;
             $item['template_id'] = $template['id'];
             $items[] = [
@@ -1067,8 +1073,12 @@ function getSendApiServices($invoiceId, $baseId)
                 'name' => Translator::translate($template['name'])
             ];
         }
+        if (!$items) {
+            continue;
+        }
         $services[] = [
             'name' => $config['name'] ? $config['name'] : Translator::translate($config['method']),
+            'method' => $config['method'],
             'items' => $items
         ];
     }

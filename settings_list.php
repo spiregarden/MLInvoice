@@ -29,6 +29,7 @@
 require_once 'sqlfuncs.php';
 require_once 'miscfuncs.php';
 require_once 'translator.php';
+require_once 'crypt.php';
 
 /**
  * Create a list of settings
@@ -60,6 +61,12 @@ function createSettingsList()
             }
 
             $newValue = getPost($name, null);
+
+            if ('PASSWD_STORED' === $type && (null === $newValue || '' === $newValue)) {
+                // Keep existing stored secret when password field is left blank.
+                continue;
+            }
+
             if (!isset($newValue) || $newValue === '') {
                 if (!$elem['allow_null']) {
                     $messages .= Translator::translate('ErrValueMissing')
@@ -81,6 +88,11 @@ function createSettingsList()
                         . ": '" . Translator::translate($label) . "'<br>\n";
                     continue;
                 }
+            }
+
+            if ('PASSWD_STORED' === $type) {
+                $crypt = new Crypt();
+                $newValue = $crypt->encrypt($newValue);
             }
 
             if (isset($elem['session']) && $elem['session']) {
