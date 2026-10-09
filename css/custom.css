@@ -1,0 +1,43 @@
+/* EasyMDE/CodeMirror uses fixed light colors; follow MLInvoice's active theme. */
+[data-bs-theme="dark"] .CodeMirror,
+[data-bs-theme="dark"] .editor-toolbar,
+[data-bs-theme="dark"] .editor-preview {
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .CodeMirror-cursor {
+  border-left-color: var(--bs-body-color);
+}
+
+[data-bs-theme="dark"] .editor-toolbar button {
+  color: var(--bs-body-color);
+}
+
+[data-bs-theme="dark"] .editor-toolbar button:hover,
+[data-bs-theme="dark"] .editor-toolbar button.active,
+[data-bs-theme="dark"] .editor-preview pre {
+  background: var(--bs-tertiary-bg);
+  border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .editor-toolbar.fullscreen::before,
+[data-bs-theme="dark"] .editor-toolbar.fullscreen::after {
+  background: none;
+}
+
+[data-bs-theme="dark"] .CodeMirror-selected,
+[data-bs-theme="dark"] .CodeMirror-focused .CodeMirror-selected {
+  background: var(--bs-primary-bg-subtle);
+}
+
+[data-bs-theme="dark"] .CodeMirror .cm-header,
+[data-bs-theme="dark"] .CodeMirror .cm-link,
+[data-bs-theme="dark"] .CodeMirror .cm-variable-2 {
+  color: var(--bs-link-color);
+}
+
+[data-bs-theme="dark"] .CodeMirror .cm-quote {
+  color: var(--bs-success-text-emphasis);
+}
