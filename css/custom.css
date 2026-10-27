@@ -1,9 +1,10 @@
-/* EasyMDE/CodeMirror uses fixed light colors; follow MLInvoice's active theme. */
+/* Make invoice name wider so I can see the name fully. Makes it behave like it wasn't in the ".medium" class  */
 #form #name {
   width: 100%;
   max-width: none;
 }
 
+/* EasyMDE/CodeMirror uses fixed light colors; follow MLInvoice's active theme. */
 [data-bs-theme="dark"] .CodeMirror,
 [data-bs-theme="dark"] .editor-toolbar,
 [data-bs-theme="dark"] .editor-preview {
