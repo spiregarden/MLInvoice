@@ -1,5 +1,5 @@
 /* EasyMDE/CodeMirror uses fixed light colors; follow MLInvoice's active theme. */
-#name {
+#form #name {
   width: 100%;
   max-width: 380px;
 }
