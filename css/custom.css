@@ -1,4 +1,9 @@
 /* EasyMDE/CodeMirror uses fixed light colors; follow MLInvoice's active theme. */
+#form #name {
+  width: 100%;
+  max-width: 380px;
+}
+
 [data-bs-theme="dark"] .CodeMirror,
 [data-bs-theme="dark"] .editor-toolbar,
 [data-bs-theme="dark"] .editor-preview {
